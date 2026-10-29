@@ -2,7 +2,8 @@
 
 Who holds the stock, and which way it is moving. Phone-first Streamlit
 dashboard; two tabs (Declared / Inferred); five sources; one derived thesis
-series (the reported-vs-estimated gap).
+series (the reported-vs-estimated gap); two event-impact panels at the bottom
+of the Declared tab.
 
 ## Run
 
@@ -15,6 +16,24 @@ series (the reported-vs-estimated gap).
 Desktop-first as of this build: `layout="wide"`, capped at 1180 px, side-by-side
 rows where continuity is not lost. The phone-first single-column rationale is
 recorded in notebook §7 and in the HTML mockup.
+
+## Event impact panels
+
+At the bottom of the **Declared** tab, under the per-bank detail:
+
+- **Before and after an event.** Choose one of the five events defined in
+  `design.py` (`EVENTS`). For each country, a hollow dot is its average monthly
+  net purchases over the 3 months before the event month and a filled dot, in
+  the country's colour, is the average over the 3 months after. The event month
+  itself is left out. Countries are sorted by change; left of zero is net
+  selling.
+- **Explore the event impact per country.** Follows the event chosen above.
+  Choose a country to see its monthly net purchases from 12 months before the
+  event month to 3 months after, with the event date marked.
+
+The windows are set in `app.py` (`WINDOW`, `MONTHS_BEFORE`, `MONTHS_AFTER`). The
+data are the synthetic sample in `data/`, and the titles of these two charts say
+"sample data". The reasoning is recorded in notebook §2, §6 and §7.
 
 ## Live data
 
